@@ -9,7 +9,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: app/sample/overlays/kind
+    path: app/sample/manifests/overlays/kind
     repoURL: https://github.com/balwa/kind-k8s-argocd
     targetRevision: main
   syncPolicy:
