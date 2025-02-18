@@ -1,0 +1,14 @@
+# two node (one worker) cluster config
+kind: Cluster
+name: argo-ci-cd
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+- role: control-plane
+  image: kindest/node:v1.32.2@sha256:f226345927d7e348497136874b6d207e0b32cc52154ad8323129352923a3142f
+  extraPortMappings:
+  - containerPort: 80
+    hostPort: 8000
+    protocol: TCP
+  - containerPort: 443
+    hostPort: 8443
+    protocol: TCP

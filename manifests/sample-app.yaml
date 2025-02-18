@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: sample-app
+spec:
+  destination:
+    namespace: sample
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: app/sample/overlays/kind
+    repoURL: https://github.com/balwa/kind-k8s-argocd
+    targetRevision: main
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: false
+    syncOptions:
+    - CreateNamespace=true
