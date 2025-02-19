@@ -50,7 +50,7 @@ jobs:
 
     - name: Update deployment manifest with new image tag
       run: |
-        IMAGE_TAG=IMAGE_TAG=${{ secrets.DOCKER_USERNAME }}/sample-app:${{ github.ref_name }}-${{ needs.build.outputs.sha_short }}-${{ needs.build.outputs.timestamp }}
+        IMAGE_TAG=${{ secrets.DOCKER_USERNAME }}/sample-app:${{ github.ref_name }}-${{ needs.build.outputs.sha_short }}-${{ needs.build.outputs.timestamp }}
         sed -i "s|image: .*$|image: $IMAGE_TAG|" app/sample/manifests/overlays/kind/deployment.yaml
 
     - name: Commit and push changes
