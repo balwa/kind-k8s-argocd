@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: fastapi
-        image: balwa/sample-app:main-3cdc37f-20250222t194457z
+        image: balwa/sample-app:main-644e5bc-20250222t194840z
         ports:
         - containerPort: 80
