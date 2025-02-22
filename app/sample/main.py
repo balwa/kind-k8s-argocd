@@ -8,3 +8,7 @@ app = FastAPI()
 async def root():
     hostname = socket.gethostname()
     return {"message": f"Hello World from {hostname}"}
+
+@app.get("/ping")
+async def ping():
+    return {"message": "pong"}
