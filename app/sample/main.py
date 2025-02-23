@@ -12,3 +12,7 @@ async def root():
 @app.get("/ping")
 async def ping():
     return {"message": "pong"}
+
+@app.get("/health")
+async def health():
+    return {"message": "ok"}
