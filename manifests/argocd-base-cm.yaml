@@ -10,3 +10,7 @@ data:
   ## Server properties
   # Used if Argo CD is running behind reverse proxy under subpath different from /
   server.rootpath: "/argocd"
+  # Add descriptive banner to demonstrate GitOps principles
+  ui.bannercontent: "🚢 Welcome to the GitOps Demo! This ArgoCD instance is managing your applications declaratively via Git."
+  ui.bannerposition: "top"
+  ui.bannercolor: "#007d9c"
