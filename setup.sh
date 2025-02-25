@@ -59,6 +59,13 @@ echo "======================================================================"
 echo "Deploying NGINX ingress controller..."
 kubectl apply -f manifests/deploy-ingress-nginx.yaml
 
+echo "Waiting for ingress controller pods to be created..."
+while [ $(kubectl get pods --namespace ingress-nginx -l app.kubernetes.io/component=controller --no-headers 2>/dev/null | wc -l) -eq 0 ]; do
+  echo -n "."
+  sleep 2
+done
+echo " done!"
+
 echo "Waiting for ingress controller to be ready (this may take a minute)..."
 kubectl wait --namespace ingress-nginx \
   --for=condition=ready pod \
